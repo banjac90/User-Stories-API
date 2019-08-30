@@ -8,6 +8,7 @@ from django.db.models import Q
 
 class Category(generics.ListCreateAPIView):
 
+	premission_classes = [IsAuthenticatedOrReadOnly,]
 	serializer_class=CategorySerializer
 	queryset = Category.objects.all()
 	
@@ -15,7 +16,7 @@ class Category(generics.ListCreateAPIView):
 class ArticleList(generics.ListAPIView):
 
 	serializer_class = ArticleSerializer	
-	premission_classes = [IsAuthenticatedOrReadOnly,]
+	premission_classes = [IsOwnerOrReadOnly,]
 
 	def get_queryset(self):
 		qs = Article.objects.all().order_by('-update_at')
@@ -37,10 +38,10 @@ class ArticleCreate(generics.CreateAPIView):
 class ArticleDetailsEdit(generics.RetrieveUpdateAPIView):	
 	queryset = Article.objects.all()	
 	serializer_class = ArticleSerializer
-	premission_classes = [IsOwnerOrReadOnly]
+	premission_classes = [IsOwnerOrReadOnly,]
 	
 
 class ArticleDelete(generics.DestroyAPIView):	
 	queryset = Article.objects.all()	
 	serializer_class = ArticleSerializer
-	premission_classes = [IsOwnerOrReadOnly]
+	premission_classes = [IsOwnerOrReadOnly,]
