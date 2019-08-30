@@ -11,4 +11,19 @@ User Stories API that contains a category, Article (book) and Custom User model 
     pip install djangorestframework_simplejwt
     pip install django-rest-swagger
   
-  
+ 3. Make migrations:
+    python manage.py makemigrations
+    python manage.py migrate
+ 
+ 4. Create Super User:
+    python manage.py createsuperuser
+    
+    You must provide Emali address, First name, Last name, and password minimum 8 characters, must contain at least one capitalized
+    letter, one number and one symbol (of course you can ignore that :) in this case)
+    
+ 5. You will see login page
+ 
+
+    
+    
+    
