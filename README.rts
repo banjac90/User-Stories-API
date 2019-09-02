@@ -16,4 +16,5 @@ User Stories API that contains a category, Article (book) and Custom User model 
  
  4. Main page is swagger-ui for testing.
  
- 5. All data renders in JSON and Postman or samiliary tool is required for other pages. Or you can insert 'rest_framework.renderers.BrowsableAPIRenderer' in 'DEFAULT_RENDERER_CLASSES'
+ 5. All data renders in JSON and Postman or samiliary tool is required for other pages. 
+    Or you can insert 'rest_framework.renderers.BrowsableAPIRenderer' in 'DEFAULT_RENDERER_CLASSES'
