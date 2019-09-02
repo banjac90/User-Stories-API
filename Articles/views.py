@@ -17,7 +17,9 @@ class ArticleList(generics.ListAPIView):
 	premission_classes = [IsOwnerOrReadOnly,]
 
 	def get_queryset(self):
+		#default list
 		qs = Article.objects.all().order_by('-update_at')
+		#Search list
 		query = self.request.GET.get('q')
 		if query is not None:
 			qs = qs.filter(Q(title__icontains=query)|Q(content__icontains=query)).distinct()
