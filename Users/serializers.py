@@ -3,8 +3,9 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from django.contrib.auth import password_validation as validators
 from rest_framework import exceptions
+from rest_auth.serializers import LoginSerializer 
 
-class RegisterationUserSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
 	password = serializers.CharField(write_only=True)
 	
 	class Meta(object):
@@ -29,3 +30,16 @@ class RegisterationUserSerializer(serializers.ModelSerializer):
 	def create(self, validated_data):
 		return User.objects.create_user(**validated_data)
  
+class UserDetailsSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = User
+		fields = ('email', 'password')
+
+
+# Get the UserModel
+UserModel = User
+
+class UserLoginSerializer(LoginSerializer):   
+	username = None
+	email = serializers.EmailField(required=True)
