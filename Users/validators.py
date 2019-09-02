@@ -1,7 +1,7 @@
 import re
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext as _
-
+#password validators
 class NumberValidator(object):
 	def validate(self, password, user=None):
 		if not re.findall('\d', password):
