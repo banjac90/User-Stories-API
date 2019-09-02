@@ -41,7 +41,7 @@ class ArticleDetailsEdit(generics.RetrieveUpdateAPIView):
 	premission_classes = [IsOwnerOrReadOnly,]
 	
 
-class ArticleDelete(generics.DestroyAPIView):	
-	queryset = Article.objects.all()	
+class ArticleDelete(generics.RetrieveDestroyAPIView):	
+	queryset = Article.objects.all()
 	serializer_class = ArticleSerializer
 	premission_classes = [IsOwnerOrReadOnly,]
