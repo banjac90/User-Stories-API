@@ -7,14 +7,12 @@ from django.db.models import Q
 
 
 class Category(generics.ListCreateAPIView):
-
 	premission_classes = [IsAuthenticatedOrReadOnly,]
 	serializer_class=CategorySerializer
 	queryset = Category.objects.all()
 	
 		
 class ArticleList(generics.ListAPIView):
-
 	serializer_class = ArticleSerializer	
 	premission_classes = [IsOwnerOrReadOnly,]
 
