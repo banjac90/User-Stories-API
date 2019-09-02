@@ -6,15 +6,19 @@ User Stories API that contains a category, Article (book) and Custom User model 
 2. install Django:
     pip install django
     
-2. Install libraries:
+3. Install libraries:
     pip install djangorestframework
     pip install djangorestframework_simplejwt
     pip install django-rest-swagger
     pip install django-rest-auth
+    
+4. Run python manage.py makemigrations, after that python manage.py migrate
+
+5. All third party apps are already included in INSTALLED_APPS
   
- 3. Download or git clone https://github.com/banjac90/User-Stories-API.git
+6. Download or git clone https://github.com/banjac90/User-Stories-API.git
  
- 4. Main page is swagger-ui for testing.
+7. Main page is swagger-ui for testing.
  
- 5. All data renders in JSON and Postman or samiliary tool is required for other pages. 
-    Or you can insert 'rest_framework.renderers.BrowsableAPIRenderer' in 'DEFAULT_RENDERER_CLASSES'
+8. All data renders in JSON and Postman or samiliary tool is required for other pages. 
+   Or you can insert 'rest_framework.renderers.BrowsableAPIRenderer' in 'DEFAULT_RENDERER_CLASSES'
