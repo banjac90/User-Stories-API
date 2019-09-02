@@ -1,6 +1,6 @@
 from .models import Category, Article
+from Users.models import User
 from rest_framework import serializers
-
 
 class CategorySerializer(serializers.ModelSerializer):
 	class Meta:
@@ -19,11 +19,9 @@ class CategorySerializer(serializers.ModelSerializer):
 			queryset = queryset.exclude(pk=self.instance.pk)
 		if queryset.exists():
 			raise serializers.ValidationError("This title has already been used")
-		return value
-		
+		return value		
 	
-class ArticleSerializer(serializers.ModelSerializer):
-	created_by_user_id = serializers.PrimaryKeyRelatedField(many=True, queryset=Article.objects.all())
+class ArticleSerializer(serializers.ModelSerializer):	
 	
 	class Meta:
 		model = Article
@@ -33,12 +31,23 @@ class ArticleSerializer(serializers.ModelSerializer):
 			'title',
 			'created_by_user_id',			
 			'update_at',
-			'content',
-			
+			'content',			
 		)
 		read_only_fields = ['pk', 'update_at',]
 
-
+class ArticleDeleteSerializer(serializers.ModelSerializer):	
+	
+	class Meta:
+		model = Article
+		fields = (	
+			'pk',		
+			'category',
+			'title',
+			'created_by_user_id',			
+			'update_at',
+			'content',			
+		)
+		read_only_fields = ['pk', 'update_at',]
 		
 	
 
