@@ -26,6 +26,12 @@ User Stories API that contains a category, Article (book) and Custom User model 
 
 9. Except Swagger documentation (first page), all other data renders in JSON. Postman or samiliary tool is required for other pages.
    Or you can insert 'rest_framework.renderers.BrowsableAPIRenderer' in 'DEFAULT_RENDERER_CLASSES' in settings.py.
+   ```
+   'DEFAULT_RENDERER_CLASSES':(
+        'rest_framework.renderers.JSONRenderer', 
+        'rest_framework.renderers.BrowsableAPIRenderer',        
+    )
+   ```
 
 10. In Postmans body tag insert: 
     ```
