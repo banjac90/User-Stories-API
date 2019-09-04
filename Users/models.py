@@ -1,7 +1,4 @@
 from django.db import models
-from datetime import datetime, timedelta
-from django.conf import settings
-import jwt
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.core.mail import EmailMultiAlternatives
 from django.dispatch import receiver
