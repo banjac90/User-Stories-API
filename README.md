@@ -7,11 +7,11 @@ User Stories API that contains a category, Article (book) and Custom User model 
     pip install django
     
 3. Install libraries:
-    pip install djangorestframework
-    pip install djangorestframework_simplejwt
-    pip install django-rest-swagger    
-    pip install pyyaml
-    pip install django-rest-passwordreset
+   - pip install djangorestframework
+   - pip install djangorestframework_simplejwt
+   - pip install django-rest-swagger    
+   - pip install pyyaml
+   - pip install django-rest-passwordreset
     
 4. Download zip file and extract it.
 
