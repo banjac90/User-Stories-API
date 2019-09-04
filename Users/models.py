@@ -59,7 +59,7 @@ class User(AbstractBaseUser):
         return True
 
     #resset password
-receiver(reset_password_token_created)   
+@receiver(reset_password_token_created)   
 def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
     #send an email
     context ={
