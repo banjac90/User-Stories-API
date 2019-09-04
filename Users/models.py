@@ -4,6 +4,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.dispatch import receiver
 from django.template.loader import render_to_string
 from django.urls import reverse
+from django_rest_passwordreset.signals import reset_password_token_created
 
 
 class UserManager(BaseUserManager):
@@ -17,7 +18,7 @@ class UserManager(BaseUserManager):
         if last_name is None:
             raise TypeError('Last name is requiered')
 
-        user = self.model(email=self.normalize_email(email))
+        user = self.model(email=self.normalize_email(email), first_name=first_name, last_name=last_name)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -58,7 +59,7 @@ class User(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
-    #resset password
+#resset password
 @receiver(reset_password_token_created)   
 def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
     #send an email
@@ -82,5 +83,3 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
         )
     msg.attach_alternative(email_html_message,"text/html")
     msg.send()
-
-
