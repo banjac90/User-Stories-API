@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'rest_framework',        
     'rest_framework_swagger',
     'rest_framework_simplejwt.token_blacklist',
-    'rest_framework.authtoken',
-    'rest_auth',
+    'django_rest_passwordreset',
+
 ]
 AUTH_USER_MODEL = 'Users.User'
 
@@ -137,7 +137,8 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {    
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',          
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+                
                
     ),
     'DEFAULT_PERMISSION_CLASSES':(
@@ -145,23 +146,15 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_RENDERER_CLASSES':(
         'rest_framework.renderers.JSONRenderer', 
-               
+        
     )
     
 }
-REST_USE_JWT = True
-REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'Users.serializers.UserDetailsSerializer',
-    'LOGIN_SERIALIZER': 'Users.serializers.UserLoginSerializer',
 
-}
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_REQUIRED = True
-REST_SESSION_LOGIN = True
 
 
 # Jwt_secret_key instead SECRET_KEY
-JWT_SECRET_KEY ='fqhnmxEyfLb6I9jj/55pCgs@nlgkqHQlU6!+:*U2G.hn1IVxyLTMPYMK2X'
+JWT_SECRET_KEY ='fqhnmxEyfLb6I9jj/55pCgs@kqHQlU6!+:*U2G.hn1IVxyLTMPYMK2X'
 
 from datetime import timedelta
 SIMPLE_JWT = {
