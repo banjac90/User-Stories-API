@@ -18,9 +18,7 @@ urlpatterns = [
     path('api/token/',TokenObtainPairView.as_view()),
     path('api/token/refresh/', TokenRefreshView.as_view()),
     path('api/token/verify/', TokenRefreshView.as_view()),
-
-    path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
-
+    
     path('openapi', get_schema_view(
         title="User Stories API",
         description="API for User Stories"        
