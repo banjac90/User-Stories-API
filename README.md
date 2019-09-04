@@ -27,8 +27,11 @@ User Stories API that contains a category, Article (book) and Custom User model 
 9. Except Swagger documentation (first page), all other data renders in JSON. Postman or samiliary tool is required for other pages.
    Or you can insert 'rest_framework.renderers.BrowsableAPIRenderer' in 'DEFAULT_RENDERER_CLASSES' in settings.py.
 
-10. In Postmans body tag insert: '{"email":"banjac90@gmail.com", "password":"!Danijel90"}' and send POST 
-    request on url: http://127.0.0.1:8000/api/token
+10. In Postmans body tag insert: 
+            '''JSON 
+            {"email":"banjac90@gmail.com", "password":"!Danijel90"}
+            '''
+    and send POST request on url: http://127.0.0.1:8000/api/token
     
 11. You will gain JWT access and refresh token
     
