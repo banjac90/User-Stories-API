@@ -63,28 +63,3 @@ class User(AbstractBaseUser):
 
     
 
-
-
-receiver(reset_password_token_created)   
-def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
-    #send an email
-    context ={
-        'crurrent_user': reset_password_token.user,
-        'email': reset_password_token.user.email,
-        'reset_password_url': "{}?token={}".format(reverse('password_reset:reset-password-request'), reset_password_)
-    }
-    email_html_message = render_to_string('email/user_reset_password.html', context)
-    email_palintext_message = render_to_string('email/user_reset_password.txt', context)
-
-    msg = EmailMultiAlternatives(
-        #title:
-        "Password Reset for {title}".format(title="User Stories password reset request"),
-        #message:
-        email_palintext_message,
-        #from:
-        "noreplay@somehost.local",
-        #to:
-        [reset_password_token.user.email]
-        )
-    msg.attach_alternative(email_html_message,"text/html")
-    msg.send()
